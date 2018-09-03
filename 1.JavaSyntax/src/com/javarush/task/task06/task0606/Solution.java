@@ -14,11 +14,9 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int x = Integer.parseInt(reader.readLine());
-        int sum = 0;
         int a = 0;
         int b = 0;
         while(x > 0) {
-            sum += x % 10;
             if (x % 2 == 0)
                 a++;
             else if (x % 2 != 0)

@@ -9,7 +9,7 @@ public class Friend {
     int age = 587;
     char sex = 'm';
 
-    public void initialize (String name){
+    public void initialize(String name) {
         this.name = name;
     }
     public void initialize (String name, int age){

@@ -19,10 +19,10 @@ public class Solution {
         Cat catGrandMother = new Cat(grandMotherName);
 
         String FatherName = reader.readLine();
-        Cat catFather = new Cat(FatherName);
+        Cat catFather = new Cat(FatherName, null, catGrandFather);
 
         String MotherName = reader.readLine();
-        Cat catMother = new Cat(MotherName);
+        Cat catMother = new Cat(MotherName, catGrandMother, null);
 
         String SonName = reader.readLine();
         Cat catSon = new Cat(SonName, catMother, catFather);
@@ -48,7 +48,6 @@ public class Solution {
         }
 
         public Cat(String name, Cat parentMother, Cat parentFather) {
-
             this.name = name;
             this.parentMother = parentMother;
             this.parentFather = parentFather;
@@ -56,13 +55,16 @@ public class Solution {
 
         @Override
         public String toString() {
-            if (parentMother == null && parentFather == null)
+            if (parentMother == null && parentFather == null) {
                 return "The cat's name is " + name + ", no mother, no father ";
-            else if (parentMother == null)
+            }
+            else if (parentMother == null) {
                 return "The cat's name is " + name + ", no mother, father is " + parentFather.name;
+            }
             else if (parentFather == null) {
                 return "The cat's name is " + name + ", mother is " + parentMother.name + ", no father";
-            else
+            }
+            else {
                 return "The cat's name is " + name + ", mother is " + parentMother.name + ", father is " + parentFather.name;
             }
         }
